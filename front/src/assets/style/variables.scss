@@ -1,0 +1,10 @@
+$desktop-width: 1440px;
+$color-font-main: #123776;
+
+@mixin wrapper-width() {
+  max-width: $desktop-width;
+}
+
+.wrapper {
+  max-width: $desktop-width;
+}
