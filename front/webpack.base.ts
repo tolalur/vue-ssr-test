@@ -3,6 +3,7 @@ import TerserPlugin from 'terser-webpack-plugin';
 import merge from 'webpack-merge';
 import VueLoaderPlugin from 'vue-loader/lib/plugin';
 import {Configuration} from 'webpack';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -35,7 +36,16 @@ let config: Configuration = {
     extensions: ['.ts', '.js', '.vue']
   },
   plugins: [
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new ForkTsCheckerWebpackPlugin(
+      {
+        typescript: {
+          diagnosticOptions: {
+            semantic: true,
+            syntactic: true
+          }
+        }
+      })
   ]
 };
 
