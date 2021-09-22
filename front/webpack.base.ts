@@ -17,7 +17,7 @@ let config: Configuration = {
       },
       {
         test: /\.(js|ts)$/,
-        loader: 'babel-loader',
+        use: ['thread-loader', 'babel-loader'],
         exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file)
       },
       {
