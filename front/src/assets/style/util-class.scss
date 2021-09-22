@@ -1,0 +1,14 @@
+@import "variables";
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  max-width: $desktop-width;
+}

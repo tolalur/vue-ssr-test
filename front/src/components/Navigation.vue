@@ -43,7 +43,6 @@ export default {
   &__item {
     text-transform: uppercase;
     font-weight: bold;
-    text-decoration: none;
     font-size: 1.1rem;
 
     &.router-link-active {
@@ -51,5 +50,4 @@ export default {
     }
   }
 }
-
 </style>

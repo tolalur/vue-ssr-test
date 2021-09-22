@@ -1,4 +1,5 @@
 @import "variables";
+@import "util-class";
 
 * {
   box-sizing: border-box;
@@ -14,6 +15,7 @@ body,
 a {
   font-family: Gilroy, "Helvetica Neue", sans-serif;
   color: $color-font-main;
+  text-decoration: none;
 }
 
 body {
@@ -26,5 +28,4 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid red;
 }

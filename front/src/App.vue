@@ -1,36 +1,35 @@
 <template>
-  <div class="main">
-    <header>
-      <h1>Сайт, слегка похожий на Fila...</h1>
-    </header>
+  <div class="main wrapper flex-col">
+    <main-header/>
+
     <main class="main__content">
       <navigation/>
       <router-view></router-view>
     </main>
-    <footer>Подвал сайта</footer>
+
+    <main-footer/>
   </div>
 </template>
 
 <script>
-import Navigation from "./components/Navigation.vue";
+import Navigation from "./components/Navigation";
+import MainHeader from "./components/MainHeader";
+import MainFooter from "./components/MainFooter";
 
 export default {
   name: "App",
-  components: {Navigation}
+  components: {Navigation, MainHeader, MainFooter}
 }
 </script>
 
 <style scoped lang="scss">
-@import "assets/style/variables";
-
 .main {
-  @include wrapper-width;
   width: 100%;
   height: 100%;
+  flex-grow: 1;
 
   &__content {
     flex-grow: 1;
-    border: 1px solid #9A4948;
   }
 }
 </style>
