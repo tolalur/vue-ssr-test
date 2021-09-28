@@ -1,47 +1,47 @@
 export const footerData = {
-  title: 'категории',
+  title: "категории",
   list: [
     {
-      label: 'Обувь',
-      value: 'footwear'
+      label: "Обувь",
+      value: "footwear"
     },
     {
-      label: 'Одежда',
-      value: 'clothing'
+      label: "Одежда",
+      value: "clothing"
     },
     {
-      label: 'Акссесуары',
-      value: 'accessories'
+      label: "Акссесуары",
+      value: "accessories"
     },
     {
-      label: 'Новинки',
-      value: 'novelty'
+      label: "Новинки",
+      value: "novelty"
     },
     {
-      label: 'Календарь релизов',
-      value: 'release-calendar'
+      label: "Календарь релизов",
+      value: "release-calendar"
     },
     {
-      label: 'Распродажа',
-      value: 'sale'
-    },
-  ]
-}
-
-export const footerDataHelp = {
-  title: 'помощь',
-  list: [
-    {
-      label: 'Доставка',
-      value: '#'
-    },
-    {
-      label: 'Возврат',
-      value: '#'
-    },
-    {
-      label: 'Отмена заказа',
-      value: '#'
+      label: "Распродажа",
+      value: "sale"
     }
   ]
-}
+};
+
+export const footerDataHelp = {
+  title: "помощь",
+  list: [
+    {
+      label: "Доставка",
+      value: "#"
+    },
+    {
+      label: "Возврат",
+      value: "#"
+    },
+    {
+      label: "Отмена заказа",
+      value: "#"
+    }
+  ]
+};

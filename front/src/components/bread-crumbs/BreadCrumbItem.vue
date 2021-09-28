@@ -1,27 +1,25 @@
 <template>
   <div class="bread-crumb__item" v-if="breadCrumb">
     <template v-if="!isLast">
-      <router-link
-          :to="breadCrumb.value"
-      >
+      <router-link :to="breadCrumb.value">
         {{ breadCrumb.label }}
       </router-link>
-      <arrow class="bread-crumb__item-arrow"/>
+      <arrow class="bread-crumb__item-arrow" />
     </template>
 
     <template v-if="isLast">
-          <span class="bread-crumb__item-last">
-            {{ breadCrumb.label }}
-          </span>
+      <span class="bread-crumb__item-last">
+        {{ breadCrumb.label }}
+      </span>
     </template>
   </div>
 </template>
 
 <script lang="ts">
-import Arrow from '../Arrow.vue'
+import Arrow from "../Arrow.vue";
 export default {
-  name: 'BreadCrumbItem',
-  components: {Arrow},
+  name: "BreadCrumbItem",
+  components: { Arrow },
   props: {
     breadCrumb: Object,
     isLast: {
@@ -46,5 +44,4 @@ export default {
     transform: rotate(90deg);
   }
 }
-
 </style>

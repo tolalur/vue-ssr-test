@@ -1,10 +1,16 @@
-import {axios} from './axios';
-import {Method} from 'axios';
+import { axios } from "./axios";
+import { Method } from "axios";
 
-const baseURL = process.env.IS_SERVER ? 'http://localhost:3001/api/' : '/api/';
+const baseURL = process.env.IS_SERVER ? "http://localhost:3001/api/" : "/api/";
 
-export default function request<T>(
-  {url, method, data}: { url: string, method: Method, data?: any }
-) {
-  return axios.request<T>({baseURL, url, method, data});
+export default function request<T>({
+  url,
+  method,
+  data
+}: {
+  url: string;
+  method: Method;
+  data?: any;
+}) {
+  return axios.request<T>({ baseURL, url, method, data });
 }

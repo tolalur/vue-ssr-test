@@ -5,14 +5,14 @@
         <slot name="title"></slot>
       </span>
       <arrow
-          class="openable__title-icon"
-          :class="{'openable__title-icon-close': !show}"
+        class="openable__title-icon"
+        :class="{ 'openable__title-icon-close': !show }"
       />
     </div>
 
     <transition name="slide">
       <div v-if="show" class="openable__content">
-        <slot/>
+        <slot />
       </div>
     </transition>
   </div>
@@ -27,16 +27,16 @@ export default {
     Arrow
   },
   data() {
-    return {show: true}
+    return { show: true };
   }
-}
+};
 </script>
 
 <style lang="scss">
 @import "src/assets/style/variables";
 .slide-enter-active,
 .slide-leave-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
 
 .slide-enter,
@@ -58,7 +58,7 @@ export default {
 
     &-icon {
       margin-left: 12px;
-      transition: all .3s ease;
+      transition: all 0.3s ease;
 
       &-close {
         transform: rotate(180deg);
@@ -67,7 +67,7 @@ export default {
   }
 
   &__content {
-    margin-top: .4rem;
+    margin-top: 0.4rem;
   }
 }
 </style>

@@ -7,11 +7,11 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from '@vue/composition-api';
-import {MainBannerTitle} from '../../models';
+import { defineComponent, PropType } from "@vue/composition-api";
+import { MainBannerTitle } from "../../models";
 
 export default defineComponent({
-  name: 'MainBannerTitle',
+  name: "MainBannerTitle",
   props: {
     data: Object as PropType<MainBannerTitle>
   }
@@ -28,7 +28,8 @@ export default defineComponent({
   font-size: 2rem;
   padding-bottom: 1rem;
 
-  h4, h3 {
+  h4,
+  h3 {
     text-transform: uppercase;
   }
 

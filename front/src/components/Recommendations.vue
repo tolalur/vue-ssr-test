@@ -3,27 +3,26 @@
     <h3>Рекомендуемые товары</h3>
     <div class="flex recommendations__wrapper">
       <goods-grid
-          class="recommendations__goods"
-          v-for="item in recommendations"
-          :key="item.id"
-          :goods="item"
+        class="recommendations__goods"
+        v-for="item in recommendations"
+        :key="item.id"
+        :goods="item"
       />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from '@vue/composition-api';
-import GoodsGrid from './goods/GoodsGrid.vue';
+import { defineComponent, PropType } from "@vue/composition-api";
+import GoodsGrid from "./goods/GoodsGrid.vue";
 
-import {useMainPage} from '../store';
-
+import { useMainPage } from "../store";
 
 export default defineComponent({
-  name: 'Recommendations',
-  components: {GoodsGrid},
+  name: "Recommendations",
+  components: { GoodsGrid },
   setup() {
-    const {recommendations} = useMainPage();
+    const { recommendations } = useMainPage();
 
     return {
       recommendations

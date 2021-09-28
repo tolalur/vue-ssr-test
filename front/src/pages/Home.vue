@@ -1,25 +1,29 @@
 <template>
   <div class="home">
-    <main-banner/>
-    <recommendations/>
+    <main-banner />
+    <recommendations />
   </div>
 </template>
 
 <script lang="ts">
-import Recommendations from '../components/Recommendations.vue';
-import MainBanner from '../components/main-banner/MainBanner.vue';
-import {defineComponent, onMounted, onServerPrefetch} from '@vue/composition-api';
-import {useMainPage} from '../store';
+import Recommendations from "../components/Recommendations.vue";
+import MainBanner from "../components/main-banner/MainBanner.vue";
+import {
+  defineComponent,
+  onMounted,
+  onServerPrefetch
+} from "@vue/composition-api";
+import { useMainPage } from "../store";
 
 export default defineComponent({
-  name: 'Home',
-  components: {MainBanner, Recommendations},
+  name: "Home",
+  components: { MainBanner, Recommendations },
   setup() {
-    const {getData, data, resetState} = useMainPage();
+    const { getData, data, resetState } = useMainPage();
 
     onServerPrefetch(() => getData());
 
-    return {getData, data, resetState}
+    return { getData, data, resetState };
   },
 
   mounted() {
@@ -29,7 +33,7 @@ export default defineComponent({
   },
 
   beforeDestroy() {
-    this.resetState()
+    this.resetState();
   }
 });
 </script>

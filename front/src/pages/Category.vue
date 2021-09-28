@@ -1,27 +1,27 @@
 <template>
   <section class="category">
-    <bread-crumbs/>
+    <bread-crumbs />
 
     <div class="category__content">
-      <filter-list/>
-      <category-goods/>
+      <filter-list />
+      <category-goods />
     </div>
   </section>
 </template>
 
 <script lang="ts">
-import BreadCrumbs from '../components/bread-crumbs/BreadCrumbs.vue';
-import FilterList from '../components/category/filters/FilterList.vue';
-import CategoryGoods from '../components/category/CategoryGoods.vue';
-import {defineComponent} from '@vue/composition-api';
-import {useCategory} from '../store';
+import BreadCrumbs from "../components/bread-crumbs/BreadCrumbs.vue";
+import FilterList from "../components/category/filters/FilterList.vue";
+import CategoryGoods from "../components/category/CategoryGoods.vue";
+import { defineComponent } from "@vue/composition-api";
+import { useCategory } from "../store";
 
 export default defineComponent({
-  name: 'Category',
-  components: {BreadCrumbs, FilterList, CategoryGoods},
+  name: "Category",
+  components: { BreadCrumbs, FilterList, CategoryGoods },
   setup() {
-    const {getData, data, resetState} = useCategory();
-    return {getData, data, resetState};
+    const { getData, data, resetState } = useCategory();
+    return { getData, data, resetState };
   },
 
   computed: {
@@ -47,7 +47,7 @@ export default defineComponent({
   },
 
   beforeDestroy() {
-    this.resetState()
+    this.resetState();
   }
 });
 </script>

@@ -1,12 +1,17 @@
 <template>
   <section class="footer-list">
     <div class="footer-list__title">{{ title }}</div>
-    <div class="footer-list__items" :class="columns === 1 ? 'footer-list__one-column' : 'footer-list__two-column' ">
+    <div
+      class="footer-list__items"
+      :class="
+        columns === 1 ? 'footer-list__one-column' : 'footer-list__two-column'
+      "
+    >
       <router-link
-          v-for="(item, index) in list"
-          :to="item.value"
-          :key="item.value + index"
-          class="footer-list__item"
+        v-for="(item, index) in list"
+        :to="item.value"
+        :key="item.value + index"
+        class="footer-list__item"
       >
         {{ item.label }}
       </router-link>
@@ -15,11 +20,11 @@
 </template>
 
 <script lang="ts">
-import {FooterModel} from '../models/footer.model';
-import {PropType} from 'vue';
+import { FooterModel } from "../models/footer.model";
+import { PropType } from "vue";
 
 export default {
-  name: 'FooterList',
+  name: "FooterList",
   props: {
     columns: {
       type: Number,
@@ -60,7 +65,7 @@ export default {
 
   &__item {
     color: #ffffff;
-    font-size: .8rem;
+    font-size: 0.8rem;
   }
 }
 </style>

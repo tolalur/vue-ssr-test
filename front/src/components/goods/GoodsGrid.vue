@@ -2,7 +2,7 @@
   <div class="goods">
     <a :href="'/product/' + goods.id">
       <div class="goods__img">
-        <img :src="preview" alt="">
+        <img :src="preview" alt="" />
       </div>
       <div>{{ goods.title }}</div>
       <div>{{ goods.price }} ₽</div>
@@ -12,17 +12,17 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from '@vue/composition-api';
-import {GoodsGridModel} from '../../models';
+import { defineComponent, PropType } from "@vue/composition-api";
+import { GoodsGridModel } from "../../models";
 
 export default defineComponent({
-  name: 'GoodsGrid',
+  name: "GoodsGrid",
   props: {
     goods: Object as PropType<GoodsGridModel>
   },
   computed: {
     preview(): string {
-      return this.goods?.img[0] || '';
+      return this.goods?.img[0] || "";
     }
   }
 });
@@ -44,7 +44,7 @@ export default defineComponent({
     overflow: hidden;
     width: 342px;
     height: 380px;
-    border-radius: .4rem .4rem 0 0;
+    border-radius: 0.4rem 0.4rem 0 0;
   }
 
   img {
@@ -54,7 +54,7 @@ export default defineComponent({
 
   &__color-count {
     color: $color-dark-grey;
-    font-size: .9rem;
+    font-size: 0.9rem;
     line-height: 1.33;
   }
 }

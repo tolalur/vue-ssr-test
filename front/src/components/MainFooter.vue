@@ -1,41 +1,28 @@
 <template>
   <footer class="footer">
-    <footer-list
-        :title="data.title"
-        :list="data.list"
-    />
-    <footer-list
-        title="виды спорта"
-        :list="data.list"
-    />
-    <footer-list
-        title="коллекции"
-        :list="data.list"
-    />
-    <footer-list
-        :columns="1"
-        :title="help.title"
-        :list="help.list"
-    />
+    <footer-list :title="data.title" :list="data.list" />
+    <footer-list title="виды спорта" :list="data.list" />
+    <footer-list title="коллекции" :list="data.list" />
+    <footer-list :columns="1" :title="help.title" :list="help.list" />
   </footer>
 </template>
 
 <script lang="ts">
 import FooterList from "./FooterList.vue";
-import {footerData, footerDataHelp} from '../data/footer.data';
+import { footerData, footerDataHelp } from "../data/footer.data";
 
 export default {
   name: "MainFooter",
-  components: {FooterList},
+  components: { FooterList },
   computed: {
     data() {
-      return footerData
+      return footerData;
     },
     help() {
-      return footerDataHelp
+      return footerDataHelp;
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
@@ -50,5 +37,4 @@ export default {
   padding: 3rem 2rem 5rem;
   margin-top: 3rem;
 }
-
 </style>

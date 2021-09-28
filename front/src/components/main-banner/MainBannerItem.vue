@@ -1,20 +1,18 @@
 <template>
-  <a
-      class="main-banner-item"
-      :href="'/product/' + data.id">
-    <img :src="data.img[0]"/>
+  <a class="main-banner-item" :href="'/product/' + data.id">
+    <img :src="data.img[0]" />
   </a>
 </template>
 
 <script lang="ts">
-import {defineComponent, PropType} from '@vue/composition-api';
-import {GoodsGridModel} from '../../models';
+import { defineComponent, PropType } from "@vue/composition-api";
+import { GoodsGridModel } from "../../models";
 
 export default defineComponent({
-  name: 'MainBannerItem',
+  name: "MainBannerItem",
   props: {
     data: Object as PropType<GoodsGridModel>
-  },
+  }
 });
 </script>
 
@@ -26,7 +24,7 @@ export default defineComponent({
   max-width: $desktop-width / 3;
   width: 100%;
 
-  img {;
+  img {
     width: auto;
     height: 100%;
     max-width: 100%;

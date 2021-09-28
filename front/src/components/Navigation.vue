@@ -1,10 +1,10 @@
 <template>
   <nav class="main-navigation">
     <router-link
-        v-for="item in navigItem"
-        :to="'/category/'+item.value"
-        :key="item.value"
-        class="main-navigation__item"
+      v-for="item in navigItem"
+      :to="'/category/' + item.value"
+      :key="item.value"
+      class="main-navigation__item"
     >
       {{ item.label }}
     </router-link>
@@ -12,19 +12,19 @@
 </template>
 
 <script lang="ts">
-import {MenuModel} from '../models';
+import { MenuModel } from "../models";
 
 export default {
-  name: 'Navigation',
+  name: "Navigation",
   computed: {
     navigItem(): MenuModel[] {
       return [
-        {label: 'Женщинам', value: 'women'},
-        {label: 'Мужчинам', value: 'men'},
-        {label: 'Детям', value: 'children'},
-        {label: 'Тренды', value: 'trends'},
-        {label: 'Новинки', value: 'latest'},
-        {label: 'Скидки', value: 'discounts'}
+        { label: "Женщинам", value: "women" },
+        { label: "Мужчинам", value: "men" },
+        { label: "Детям", value: "children" },
+        { label: "Тренды", value: "trends" },
+        { label: "Новинки", value: "latest" },
+        { label: "Скидки", value: "discounts" }
       ];
     }
   }
