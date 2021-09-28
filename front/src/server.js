@@ -23,8 +23,6 @@ const proxy = httpProxy.createProxyServer();
 
 server.all('/api/*', (req, res) => {
 
-  req.url = '/' + req.url.split('/').slice(2).join('/');
-
   proxy.proxyRequest(req, res, {
     target: "http://localhost:3001",
   });

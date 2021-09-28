@@ -12,7 +12,7 @@ let config = merge(baseConfig, {
   plugins: [new VueSSRClientPlugin()],
   output: {
     path: path.resolve('./dist/'),
-    filename: '[name].[hash:8].js',
+    filename: '[name].[fullhash:8].js',
     publicPath: '/dist/'
   },
   module: {
@@ -56,7 +56,7 @@ if (!isProduction) {
   config = merge(config, {
     plugins: [
       new MiniCssExtractPlugin({
-        filename: '[name].[hash:8].css'
+        filename: '[name].[fullhash:8].css'
       })
     ]
   });

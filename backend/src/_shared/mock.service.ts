@@ -52,7 +52,6 @@ export class MockService {
 
       counter += 1;
     }
-    console.log(length, data.length);
 
     return data;
   }
