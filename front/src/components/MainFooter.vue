@@ -43,11 +43,12 @@ export default {
 
 .footer {
   color: #ffffff;
-  background-color: $background-color-dark;
+  background-color: $color-dark;
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 2rem;
   padding: 3rem 2rem 5rem;
+  margin-top: 3rem;
 }
 
 </style>

@@ -1,13 +1,14 @@
-import merge from 'webpack-merge';
-import VueSSRClientPlugin from 'vue-server-renderer/client-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import path from 'path';
-import baseConfig from './webpack.base';
-import webpack, {Configuration} from 'webpack';
+const merge = require('webpack-merge').merge;
+const VueSSRClientPlugin = require('vue-server-renderer/client-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+const baseConfig = require('./webpack.base');
+const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
+
 let config = merge(baseConfig, {
-  entry: ['./src/entry-client.ts'],
+  entry: './src/entry-client.ts',
   plugins: [new VueSSRClientPlugin()],
   output: {
     path: path.resolve('./dist/'),
@@ -50,7 +51,7 @@ if (!isProduction) {
         writeToDisk: true
       }
     }
-  } as Configuration);
+  });
 } else {
   config = merge(config, {
     plugins: [
@@ -61,4 +62,4 @@ if (!isProduction) {
   });
 }
 
-export default config;
+module.exports = config;

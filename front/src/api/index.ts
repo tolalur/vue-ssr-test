@@ -1,1 +1,7 @@
-export const fetchItem = (id: any) => Promise.resolve({title: 'super item'})
+import {category} from './category';
+import {mainPage} from './main-page';
+
+export const api = {
+  category,
+  mainPage
+}

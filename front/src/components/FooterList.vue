@@ -3,9 +3,9 @@
     <div class="footer-list__title">{{ title }}</div>
     <div class="footer-list__items" :class="columns === 1 ? 'footer-list__one-column' : 'footer-list__two-column' ">
       <router-link
-          v-for="item in list"
+          v-for="(item, index) in list"
           :to="item.value"
-          :key="item.value"
+          :key="item.value + index"
           class="footer-list__item"
       >
         {{ item.label }}
@@ -30,7 +30,7 @@ export default {
       required: true
     },
     list: {
-      type: Object as PropType<FooterModel[]>,
+      type: Array as PropType<FooterModel[]>,
       required: true
     }
   }

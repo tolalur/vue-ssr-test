@@ -14,7 +14,7 @@ p {
 body,
 a {
   font-family: Gilroy, "Helvetica Neue", sans-serif;
-  color: $color-font-main;
+  color: $color-main;
   text-decoration: none;
 }
 
@@ -22,10 +22,13 @@ body {
   padding: 0;
   margin: 0;
   min-height: 100vh;
-  min-width: 100vw;
   background-color: #ffffff;
   font-size: 14px;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+h6, h5, h4, h3 {
+  margin: 0;
 }

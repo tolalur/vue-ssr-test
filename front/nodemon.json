@@ -2,8 +2,8 @@
   "verbose": false,
   "watch": [
     "dist/vue-ssr-server-bundle.json",
-    "src/server.ts"
+    "src/server.js"
   ],
   "ext": "json,ts",
-  "exec": "ts-node"
+  "exec": "node src/server.js"
 }

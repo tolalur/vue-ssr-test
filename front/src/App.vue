@@ -2,7 +2,7 @@
   <div class="main wrapper flex-col">
     <main-header/>
 
-    <main class="main__content">
+    <main class="main__content flex-col">
       <navigation/>
       <router-view></router-view>
     </main>

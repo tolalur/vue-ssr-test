@@ -8,8 +8,9 @@ export function createRouter(): VueRouter {
   return new Router({
     mode: 'history',
     routes: [
-      { path: '/', component: () => import('./pages/Home.vue') },
-      { path: '/*', component: () => import('./pages/Item.vue') },
+      { path: '/', component: () => import('../pages/Home.vue') },
+      { path: '/category*', component: () => import('../pages/Category.vue') },
+      { path: '/**', component: () => import('../pages/NotFound.vue') },
     ]
   })
 }

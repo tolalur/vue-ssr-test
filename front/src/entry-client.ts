@@ -1,10 +1,10 @@
 import createApp from './main';
+import {replaceState} from './store/helper';
 
-const {app, router, store} = createApp();
-declare const module
+let {app, router, store,} = createApp();
+
 if ((window as any).__INITIAL_STATE__) {
-  // Инициализируем состояние хранилища данными, внедрёнными на сервере
-  store.replaceState((window as any).__INITIAL_STATE__);
+  replaceState(store, (window as any).__INITIAL_STATE__);
 }
 
 router.onReady(() => {

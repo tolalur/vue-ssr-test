@@ -1,7 +1,7 @@
-import merge from 'webpack-merge';
-import VueSSRServerPlugin from 'vue-server-renderer/server-plugin';
-import baseConfig from './webpack.base';
-import nodeExternals from 'webpack-node-externals';
+const merge = require('webpack-merge').merge;
+const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
+const baseConfig = require('./webpack.base');
+const nodeExternals = require('webpack-node-externals');
 
 let config = merge(baseConfig, {
   entry: './src/entry-server.ts',
@@ -28,4 +28,4 @@ let config = merge(baseConfig, {
   }
 });
 
-export default config;
+module.exports = config;

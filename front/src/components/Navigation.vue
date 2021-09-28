@@ -2,18 +2,17 @@
   <nav class="main-navigation">
     <router-link
         v-for="item in navigItem"
-        :to="item.value"
+        :to="'/category/'+item.value"
         :key="item.value"
         class="main-navigation__item"
     >
-      {{item.label}}
+      {{ item.label }}
     </router-link>
   </nav>
 </template>
 
 <script lang="ts">
-
-import {MenuModel} from '../../../common/data-models/menu.model';
+import {MenuModel} from '../models';
 
 export default {
   name: 'Navigation',
@@ -33,9 +32,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import "../assets/style/variables";
+
 .main-navigation {
   width: 100%;
-  background-color: #F2F2F2;
+  background-color: $color-grey;
   padding: 1.5em 2em;
   display: flex;
   justify-content: space-between;
@@ -46,7 +47,7 @@ export default {
     font-size: 1.1rem;
 
     &.router-link-active {
-      color: #9A4948;
+      color: $color-accent;
     }
   }
 }

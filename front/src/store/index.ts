@@ -1,30 +1,22 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+import Vue from 'vue';
+import VueCompositionAPI, {reactive} from '@vue/composition-api';
+import {createCategoryStore} from './category';
+import {createMainPageStore} from './main-page';
 
-Vue.use(Vuex)
+Vue.use(VueCompositionAPI);
 
-import { fetchItem } from '../api';
+export const useCategory = createCategoryStore();
+export const useMainPage = createMainPageStore();
 
-export function createStore () {
-  return new Vuex.Store({
-    state: () => ({
-      items: {}
-    }),
+export function createStore() {
+  const category = useCategory();
+  const mainPage = useMainPage();
 
-    actions: {
-      fetchItem ({ commit }, id) {
-        // возвращаем Promise через `store.dispatch()`
-        // чтобы могли определять когда данные будут загружены
-        return fetchItem(id).then(item => {
-          commit('setItem', { id, item })
-        })
-      }
-    },
+  category.resetState()
+  mainPage.resetState()
 
-    mutations: {
-      setItem (state, { id, item }) {
-        Vue.set(state.items, id, item)
-      }
-    }
-  })
+  return reactive({
+    category: category.getState(),
+    mainPage: mainPage.getState()
+  });
 }
