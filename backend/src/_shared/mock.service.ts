@@ -1,8 +1,9 @@
 import {Injectable} from '@nestjs/common';
-import {MainBannerModel} from '../../common/data-models/main-banner.model';
-import {GoodsGridModel} from '../../common/data-models/goods-grid.model';
-import {CategoryModel} from '../../common/data-models/category.model';
-import {FilterType} from '../../common/data-models/filter.model';
+import {MainBannerModel} from '../../../common/data-models/main-banner.model';
+import {CategoryModel} from '../../../common/data-models/category.model';
+import {FilterType} from '../../../common/data-models/filter.model';
+import {GoodsGridModel} from '../../../common/data-models/goods-grid.model';
+
 
 @Injectable()
 export class MockService {
@@ -53,7 +54,7 @@ export class MockService {
       counter += 1;
     }
 
-    return data;
+    return data.slice();
   }
 
   getGoods() {
