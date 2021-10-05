@@ -14,7 +14,7 @@ import TextFilter from "./filters-by-type/TextFilter.vue";
 import ColorFilter from "./filters-by-type/ColorFilter.vue";
 import { defineComponent } from "@vue/composition-api";
 import { useCategory } from "../../../store";
-import { FilterType } from "../../../models";
+import {FilterType} from '../../../../../common/data-models/filter.model';
 
 export default defineComponent({
   name: "FilterList",
