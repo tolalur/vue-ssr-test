@@ -7,8 +7,8 @@ export interface FilterModel {
   count?: number;
 }
 
-export enum FilterType {
-  COLOR = 'color',
-  SIZE = 'size',
-  TEXT = 'text',
+export class FilterType {
+  static COLOR = 'color'
+  static SIZE = 'size'
+  static TEXT = 'text'
 }
