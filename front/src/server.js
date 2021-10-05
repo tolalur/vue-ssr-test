@@ -7,20 +7,13 @@ const path = require('path');
 
 const server = express();
 
-const template = fs.readFileSync('./src/public/index.template.html', 'utf-8');
-
-
-const renderer = createBundleRenderer(serverBundle, {
-  runInNewContext: false,
-  template,
-  clientManifest
-});
-
 server.use('/dist', express.static(path.join(__dirname, '../dist')));
+
+const favicon = require('serve-favicon')
+server.use(favicon(path.join(__dirname, '/public', 'favicon.ico')));
 
 const httpProxy = require('http-proxy');
 const proxy = httpProxy.createProxyServer();
-
 server.all('/api/*', (req, res) => {
 
   proxy.proxyRequest(req, res, {
@@ -28,6 +21,14 @@ server.all('/api/*', (req, res) => {
   });
 
 })
+
+
+const template = fs.readFileSync('./src/public/index.template.html', 'utf-8');
+const renderer = createBundleRenderer(serverBundle, {
+  runInNewContext: false,
+  template,
+  clientManifest
+});
 
 server.get('*', async (req, res) => {
   const context = {url: req.url};
