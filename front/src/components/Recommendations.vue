@@ -13,10 +13,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "@vue/composition-api";
 import GoodsGrid from "./goods/GoodsGrid.vue";
 
 import { useMainPage } from "../store";
+import {defineComponent} from 'vue';
 
 export default defineComponent({
   name: "Recommendations",

@@ -15,19 +15,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import Arrow from "../Arrow.vue";
-export default {
-  name: "BreadCrumbItem",
-  components: { Arrow },
-  props: {
-    breadCrumb: Object,
-    isLast: {
-      type: Boolean,
-      default: false
-    }
-  }
-};
+import {MenuModel} from '../../models';
+
+const props = defineProps<{
+  breadCrumb: MenuModel
+  isLast?: Boolean
+}>()
 </script>
 
 <style lang="scss">

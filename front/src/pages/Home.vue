@@ -12,7 +12,7 @@ import {
   defineComponent,
   onMounted,
   onServerPrefetch
-} from "@vue/composition-api";
+} from "vue";
 import { useMainPage } from "../store";
 
 export default defineComponent({

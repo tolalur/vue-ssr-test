@@ -1,55 +1,32 @@
 <template>
   <section class="category">
-    <bread-crumbs />
+    <bread-crumbs/>
 
     <div class="category__content">
-      <filter-list />
-      <category-goods />
+      <filter-list/>
+      <category-goods/>
     </div>
   </section>
 </template>
 
-<script lang="ts">
-import BreadCrumbs from "../components/bread-crumbs/BreadCrumbs.vue";
-import FilterList from "../components/category/filters/FilterList.vue";
-import CategoryGoods from "../components/category/CategoryGoods.vue";
-import { defineComponent } from "@vue/composition-api";
-import { useCategory } from "../store";
+<script lang="ts" setup>
+import BreadCrumbs from '../components/bread-crumbs/BreadCrumbs.vue';
+import FilterList from '../components/category/filters/FilterList.vue';
+import CategoryGoods from '../components/category/CategoryGoods.vue';
+import {computed, onMounted, onServerPrefetch, watch} from 'vue';
+import {useCategory} from '../store';
+import {useRoute} from 'vue-router';
 
-export default defineComponent({
-  name: "Category",
-  components: { BreadCrumbs, FilterList, CategoryGoods },
-  setup() {
-    const { getData, data, resetState } = useCategory();
-    return { getData, data, resetState };
-  },
+const {getData, data, resetState} = useCategory();
+const route = useRoute();
 
-  computed: {
-    path(): string {
-      return this.$route.params.pathMatch.slice(1);
-    }
-  },
+const path = computed<string[]>(() => route.params['nested']);
 
-  watch: {
-    path(val: string) {
-      this.getData(val);
-    }
-  },
+watch(() => path.value, (val: string[]) => getData(val));
 
-  serverPrefetch() {
-    return useCategory().getData(this.$route.params.pathMatch.slice(1));
-  },
+onServerPrefetch(() => getData(path.value));
 
-  mounted() {
-    if (this.data.length == 0) {
-      this.getData(this.path);
-    }
-  },
-
-  beforeDestroy() {
-    this.resetState();
-  }
-});
+onMounted(() => data.value.length == 0 && getData(path.value));
 </script>
 
 <style lang="scss">

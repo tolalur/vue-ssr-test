@@ -1,4 +1,4 @@
-import { computed, Ref, UnwrapRef } from "@vue/composition-api";
+import {computed, Ref, UnwrapRef} from 'vue';
 
 export const withState = (target: any, state: Ref<any>) => {
   Object.keys(state.value).forEach(prop => {

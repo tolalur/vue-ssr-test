@@ -1,23 +1,18 @@
-import createApp from "./main";
+import _createApp from './main';
 
-export default (context: any) => {
-  return new Promise((resolve, reject) => {
-    const { app, router, store } = createApp();
+export default async (context: any) => {
+  const {app, router, store} = _createApp();
 
-    router.push(context.url);
+  await router.push(context.url);
+  await router.isReady();
 
-    router.onReady(() => {
-      const matchedComponents = router.getMatchedComponents();
+  const matchedComponents = router.currentRoute.value.matched;
 
-      if (!matchedComponents.length) {
-        return reject({ code: 404 });
-      }
+  if (!matchedComponents.length) {
+    throw new Error('404');
+  }
 
-      context.rendered = () => {
-        context.state = store;
-      };
+  context.state = store;
 
-      resolve(app);
-    }, reject);
-  });
-};
+  return app;
+}

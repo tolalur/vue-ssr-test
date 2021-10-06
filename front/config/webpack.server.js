@@ -1,5 +1,6 @@
 const merge = require('webpack-merge').merge;
 const VueSSRServerPlugin = require('vue-server-renderer/server-plugin');
+const { WebpackManifestPlugin } = require('webpack-manifest-plugin');
 const baseConfig = require('./webpack.base');
 const nodeExternals = require('webpack-node-externals');
 
@@ -13,7 +14,7 @@ let config = merge(baseConfig, {
   externals: nodeExternals({
     allowlist: /\.css$/,
   }),
-  plugins: [new VueSSRServerPlugin()],
+  plugins: [new VueSSRServerPlugin(), new WebpackManifestPlugin({ fileName: "ssr-manifest.json" })],
   module: {
     rules: [
       {

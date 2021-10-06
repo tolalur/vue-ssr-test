@@ -18,18 +18,11 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Arrow from "../../Arrow";
+import {ref} from "vue";
 
-export default {
-  name: "Openable",
-  components: {
-    Arrow
-  },
-  data() {
-    return { show: true };
-  }
-};
+const show =  ref(true)
 </script>
 
 <style lang="scss">

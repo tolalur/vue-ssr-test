@@ -1,26 +1,20 @@
 <template>
   <div class="size-filter">
     <div
-      class="size-filter__item"
-      v-for="item in data"
-      :key="item.value"
-      @click="$emit('size', item.value)"
+        class="size-filter__item"
+        v-for="item in data"
+        :key="item.value"
+        @click="$emit('size', item.value)"
     >
       {{ item.label }}
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from "@vue/composition-api";
-import { MenuModel } from "../../../../models";
+<script lang="ts" setup>
+import {MenuModel} from '../../../../models';
 
-export default defineComponent({
-  name: "SizeFilter",
-  props: {
-    data: Array as PropType<MenuModel[]>
-  }
-});
+const props = defineProps<{ data: MenuModel[] }>();
 </script>
 
 <style lang="scss">

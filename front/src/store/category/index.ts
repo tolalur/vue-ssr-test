@@ -1,14 +1,14 @@
-import { computed, ComputedRef, ref } from "@vue/composition-api";
-import { withState } from "../helper";
+import {withState} from '../helper';
 import {
   FilterModel,
   MenuModel,
   GoodsGridModel,
-  CategoryModel
-} from "../../models";
-import { api } from "../../api";
+  CategoryModel, ComputedPick
+} from '../../models';
+import {api} from '../../api';
+import {ref} from 'vue';
 
-interface IFullState extends CategoryModel {
+interface IFullState extends ComputedPick<CategoryModel, keyof CategoryModel> {
   getData: (path: string) => Promise<any>;
   resetState: () => void;
   getState: () => CategoryModel;
@@ -29,8 +29,8 @@ export function createCategoryStore() {
 
   const getState = () => state;
 
-  const getData = async (path: string) => {
-    const { data } = await api.category.getData({ url: path });
+  const getData = async (path: string[]) => {
+    const {data} = await api.category.getData({url: path});
     state.value = data;
   };
 

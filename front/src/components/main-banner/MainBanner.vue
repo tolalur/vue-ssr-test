@@ -8,7 +8,7 @@
 <script lang="ts">
 import MainBannerTitle from "./MainBannerTitle.vue";
 import MainBannerItem from "./MainBannerItem.vue";
-import { defineComponent } from "@vue/composition-api";
+import { defineComponent } from "vue";
 import { useMainPage } from "../../store";
 
 export default defineComponent({

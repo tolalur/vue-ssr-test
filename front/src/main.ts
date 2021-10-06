@@ -1,17 +1,16 @@
-import Vue from "vue";
 import App from "./App.vue";
-import { createRouter } from "./router/router";
+import { _createRouter } from "./router/router";
 import "./assets/style/style.scss";
-import { createStore } from "./store";
+import { _createStore } from "./store";
+import {createSSRApp} from 'vue';
 
-export default function createApp(context?: any) {
-  const router = createRouter();
-  const store = createStore();
 
-  const app = new Vue({
-    router,
-    render: h => h(App)
-  });
+export default function _createApp() {
+  const router = _createRouter();
+  const store = _createStore();
+
+  const app = createSSRApp(App);
+  app.use(router)
 
   return { app, router, store };
 }

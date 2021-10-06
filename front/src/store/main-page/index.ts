@@ -1,7 +1,7 @@
-import { ref } from "@vue/composition-api";
 import { withState } from "../helper";
 import { GoodsGridModel, MainBannerModel } from "../../models";
 import { api } from "../../api";
+import {ref} from 'vue';
 
 interface IFullState extends MainBannerModel {
   getState: () => MainBannerModel;

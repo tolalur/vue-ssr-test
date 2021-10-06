@@ -2,7 +2,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const merge = require('webpack-merge').merge;
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 const webpack = require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -13,7 +13,7 @@ let config = {
     rules: [
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
+        loader:  require.resolve('vue-loader'),
       },
       {
         test: /\.js$/,
@@ -25,7 +25,8 @@ let config = {
         loader: 'ts-loader',
         exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file),
         options: {
-          transpileOnly: true
+          transpileOnly: true,
+          appendTsSuffixTo: [/\.vue$/],
         }
       },
       {
@@ -45,7 +46,7 @@ let config = {
           extensions: {
             vue: {
               enabled: true,
-              compiler: require.resolve('vue-template-compiler')
+              compiler: '@vue/compiler-sfc'
             }
           },
           diagnosticOptions: {
@@ -55,7 +56,9 @@ let config = {
         }
       }),
     new webpack.DefinePlugin({
-      'process.env.IS_SERVER': JSON.stringify(process.env.IS_SERVER)
+      'process.env.IS_SERVER': JSON.stringify(process.env.IS_SERVER),
+      __VUE_OPTIONS_API__: 'true',
+      __VUE_PROD_DEVTOOLS__: 'false',
     })
   ]
 };

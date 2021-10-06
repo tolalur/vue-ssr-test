@@ -1,25 +1,25 @@
 <template>
   <div class="main wrapper flex-col">
-    <main-header />
+    <main-header/>
 
     <main class="main__content flex-col">
-      <navigation />
-      <router-view></router-view>
+      <navigation/>
+      <!--      <router-view></router-view>-->
+      <router-view v-slot="{ Component, route }">
+        <transition name="fade" mode="out-in">
+          <component :is="Component"/>
+        </transition>
+      </router-view>
     </main>
 
-    <main-footer />
+    <main-footer/>
   </div>
 </template>
 
-<script>
-import Navigation from "./components/Navigation";
-import MainHeader from "./components/MainHeader";
-import MainFooter from "./components/MainFooter";
-
-export default {
-  name: "App",
-  components: { Navigation, MainHeader, MainFooter }
-};
+<script lang="ts" setup>
+import Navigation from './components/Navigation';
+import MainHeader from './components/MainHeader';
+import MainFooter from './components/MainFooter';
 </script>
 
 <style scoped lang="scss">
