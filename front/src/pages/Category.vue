@@ -20,13 +20,17 @@ import {useRoute} from 'vue-router';
 const {getData, data, resetState} = useCategory();
 const route = useRoute();
 
-const path = computed<string[]>(() => route.params['nested']);
+const path = computed<string[] | null>(() => Array.isArray(route.params['nested'])
+    ? route.params['nested']
+    : null);
 
-watch(() => path.value, (val: string[]) => getData(val));
+const isPathNull = (path: any): path is null => path == null;
 
-onServerPrefetch(() => getData(path.value));
+watch(() => path.value, (val: string[] | null) => !isPathNull(val) && getData(val));
 
-onMounted(() => data.value.length == 0 && getData(path.value));
+onServerPrefetch(() => !isPathNull(path.value) && getData(path.value));
+
+onMounted(() => !isPathNull(path.value) && getData(path.value));
 </script>
 
 <style lang="scss">
