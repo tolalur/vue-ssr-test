@@ -1,24 +1,24 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
-import { AppModule } from './../src/app.module';
+import {MainPageModule} from '../src/main-page/main-page.module';
 
-describe('AppController (e2e)', () => {
+describe('MainPageController (e2e)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
-      imports: [AppModule],
+      imports: [MainPageModule],
     }).compile();
 
     app = moduleFixture.createNestApplication();
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/main-page (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/main-page')
       .expect(200)
-      .expect('Hello World!');
+      .expect((body) => body != null);
   });
 });

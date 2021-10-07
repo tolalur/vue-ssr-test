@@ -1,12 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import {MockService} from '../_shared/mock.service';
+import {CategoryRequest} from '../../../common/data-models/category.model';
 
 @Injectable()
 export class CategoryService {
   constructor(private mockService: MockService) {
   }
 
-  getData(url: string) {
-    return this.mockService.getCategoryMock(url)
+  getData(request: CategoryRequest) {
+    return this.mockService.getCategoryMock(request)
   }
 }

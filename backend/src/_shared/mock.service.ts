@@ -1,6 +1,6 @@
 import {Injectable} from '@nestjs/common';
 import {MainBannerModel} from '../../../common/data-models/main-banner.model';
-import {CategoryModel} from '../../../common/data-models/category.model';
+import {CategoryModel, CategoryRequest} from '../../../common/data-models/category.model';
 import {FilterType} from '../../../common/data-models/filter.model';
 import {GoodsGridModel} from '../../../common/data-models/goods-grid.model';
 
@@ -14,12 +14,12 @@ export class MockService {
         subtitle: 'AW22',
         url: 'catalog/iconic-aw22'
       },
-      data: this.arrayCut(2, this.getGoods()),
-      recommendations: this.arrayCut(4, this.getGoods())
+      data: this.getGoods().slice(0, 2),
+      recommendations: this.getGoods().slice(0, 4)
     };
   }
 
-  getCategoryMock(url: string): CategoryModel {
+  getCategoryMock(request: CategoryRequest): CategoryModel {
     return {
       filters: [
         {
@@ -37,24 +37,9 @@ export class MockService {
           ]
         }
       ],
-      breadCrumbs: this.makeBreadCrumbs(url),
+      breadCrumbs: this.makeBreadCrumbs(request.url),
       data: this.getGoods()
     };
-  }
-
-  arrayCut(length: number, arr) {
-    const data = [];
-    let counter = 0;
-    while (counter < length) {
-
-      if (arr[counter] != null) {
-        data.push(arr[counter]);
-      }
-
-      counter += 1;
-    }
-
-    return data.slice();
   }
 
   getGoods() {
@@ -69,8 +54,8 @@ export class MockService {
     return array;
   }
 
-  private makeBreadCrumbs(url: string) {
-    return [this.mainMenu.filter(val => val.value == url)[0], this.shuffle(this.subMenu)[0]];
+  private makeBreadCrumbs(url: string[]) {
+    return [this.mainMenu.filter(val => val.value == url[0])[0], this.shuffle(this.subMenu)[0]];
   }
 
   private mainMenu = [

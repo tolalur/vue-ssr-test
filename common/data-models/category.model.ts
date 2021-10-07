@@ -7,3 +7,7 @@ export interface CategoryModel {
   breadCrumbs: MenuModel[],
   data: GoodsGridModel[]
 }
+
+export interface CategoryRequest {
+  url: string[]
+}
