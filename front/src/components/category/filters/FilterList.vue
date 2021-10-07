@@ -1,7 +1,7 @@
 <template>
   <div class="filter-list flex-col">
     <openable v-for="item in filters" :key="item.type">
-      <template slot="title">{{ item.title }}</template>
+      <template v-slot:title>{{ item.title }}</template>
       <component :is="filterByType(item.type)" :data="item.data"/>
     </openable>
   </div>
