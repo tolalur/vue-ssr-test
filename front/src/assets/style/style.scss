@@ -32,3 +32,9 @@ body {
 h6, h5, h4, h3 {
   margin: 0;
 }
+
+#app {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
