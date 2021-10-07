@@ -1,28 +1,29 @@
 <template>
   <footer class="footer">
-    <footer-list :title="data.title" :list="data.list" />
-    <footer-list title="виды спорта" :list="data.list" />
-    <footer-list title="коллекции" :list="data.list" />
-    <footer-list :columns="1" :title="help.title" :list="help.list" />
+    <footer-list
+        v-for="item in links"
+        :title="item.title" :links="item.list"
+        :columns="2"
+    />
+
+    <footer-list
+        :columns="1"
+        :title="helpLinks.title"
+        :links="helpLinks.list"
+    />
   </footer>
 </template>
 
-<script lang="ts">
-import FooterList from "./FooterList.vue";
-import { footerData, footerDataHelp } from "../data/footer.data";
+<script lang="ts" setup>
+import FooterList from './FooterList.vue';
+import {FooterLink, FooterHelpLinks} from '../data/footerLink';
 
-export default {
-  name: "MainFooter",
-  components: { FooterList },
-  computed: {
-    data() {
-      return footerData;
-    },
-    help() {
-      return footerDataHelp;
-    }
-  }
-};
+const links = [
+  new FooterLink('категории'),
+  new FooterLink('виды спорта'),
+  new FooterLink('коллекции')
+];
+const helpLinks = new FooterHelpLinks();
 </script>
 
 <style scoped lang="scss">

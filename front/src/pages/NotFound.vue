@@ -4,12 +4,6 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "NotFound"
-};
-</script>
-
 <style>
 .not-found {
   flex-grow: 1;

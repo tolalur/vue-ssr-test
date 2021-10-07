@@ -8,7 +8,7 @@
       "
     >
       <router-link
-        v-for="(item, index) in list"
+        v-for="(item, index) in links"
         :to="item.value"
         :key="item.value + index"
         class="footer-list__item"
@@ -19,27 +19,14 @@
   </section>
 </template>
 
-<script lang="ts">
-import { FooterModel } from "../models/footer.model";
-import { PropType } from "vue";
+<script lang="ts" setup>
+import {MenuModel} from '../models';
 
-export default {
-  name: "FooterList",
-  props: {
-    columns: {
-      type: Number,
-      default: 2
-    },
-    title: {
-      type: String,
-      required: true
-    },
-    list: {
-      type: Array as PropType<FooterModel[]>,
-      required: true
-    }
-  }
-};
+const props = defineProps<{
+  columns: number,
+  title: string,
+  links: MenuModel[]
+}>();
 </script>
 
 <style scoped lang="scss">
