@@ -4,12 +4,8 @@
 
     <main class="main__content flex-col">
       <navigation/>
-      <!--      <router-view></router-view>-->
-      <router-view v-slot="{ Component, route }">
-        <transition name="fade" mode="out-in">
-          <component :is="Component"/>
-        </transition>
-      </router-view>
+
+      <router-view></router-view>
     </main>
 
     <main-footer/>
@@ -17,9 +13,9 @@
 </template>
 
 <script lang="ts" setup>
-import Navigation from './components/Navigation';
-import MainHeader from './components/MainHeader';
-import MainFooter from './components/MainFooter';
+import Navigation from './components/Navigation.vue';
+import MainHeader from './components/MainHeader.vue';
+import MainFooter from './components/MainFooter.vue';
 </script>
 
 <style scoped lang="scss">
