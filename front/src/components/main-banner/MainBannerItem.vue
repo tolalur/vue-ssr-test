@@ -4,16 +4,10 @@
   </a>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { GoodsGridModel } from '../../models';
+<script lang="ts" setup>
+import {GoodsGridModel} from '../../models';
 
-export default defineComponent({
-  name: 'MainBannerItem',
-  props: {
-    data: Object as PropType<GoodsGridModel>,
-  },
-});
+const props = defineProps<{ data: GoodsGridModel }>();
 </script>
 
 <style lang="scss">

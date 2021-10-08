@@ -1,28 +1,16 @@
 <template>
   <section class="main-banner">
-    <main-banner-title :data="collection" />
-    <main-banner-item v-for="item in goods" :key="item.id" :data="item" />
+    <main-banner-title :data="collection"/>
+    <main-banner-item v-for="item in data" :key="item.id" :data="item"/>
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import MainBannerTitle from './MainBannerTitle.vue';
 import MainBannerItem from './MainBannerItem.vue';
-import { defineComponent } from 'vue';
-import { useMainPage } from '../../store';
+import {useMainPage} from '../../store';
 
-export default defineComponent({
-  name: 'MainBanner',
-  components: { MainBannerTitle, MainBannerItem },
-  setup() {
-    const { collection, data } = useMainPage();
-
-    return {
-      collection,
-      goods: data,
-    };
-  },
-});
+const {collection, data} = useMainPage();
 </script>
 
 <style>

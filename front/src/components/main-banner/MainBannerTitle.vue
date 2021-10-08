@@ -6,16 +6,10 @@
   </a>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { MainBannerTitle } from '../../models';
+<script lang="ts" setup>
+import {MainBannerTitle} from '../../models';
 
-export default defineComponent({
-  name: 'MainBannerTitle',
-  props: {
-    data: Object as PropType<MainBannerTitle>,
-  },
-});
+const props = defineProps<{ data: MainBannerTitle }>();
 </script>
 
 <style lang="scss">
