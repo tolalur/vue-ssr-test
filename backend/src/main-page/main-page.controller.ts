@@ -8,6 +8,6 @@ export class MainPageController {
 
   @Get()
   getMainPageData() {
-  return this.mainPageService.getData();
+  return this.mainPageService.getMainPageData();
 }
 }

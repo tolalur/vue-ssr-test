@@ -6,7 +6,7 @@ import { ref } from 'vue';
 type routsArr = string[];
 
 interface IFullState extends ComputedPick<CategoryModel, keyof CategoryModel> {
-  getData: (path: routsArr) => Promise<any>;
+  fetchCategory: (path: routsArr) => Promise<any>;
   resetState: () => void;
   getState: () => CategoryModel;
 }
@@ -26,7 +26,7 @@ export function createCategoryStore() {
 
   const getState = () => state;
 
-  const getData = async (path: routsArr) => {
+  const fetchCategory = async (path: routsArr) => {
     const { data } = await api.category.getData({ url: path });
     state.value = data;
   };
@@ -36,7 +36,7 @@ export function createCategoryStore() {
       {
         getState,
         resetState,
-        getData,
+        fetchCategory,
       },
       state,
     );

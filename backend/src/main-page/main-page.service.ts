@@ -6,7 +6,7 @@ export class MainPageService {
   constructor(private mock: MockService) {
   }
 
-  getData() {
+  getMainPageData() {
     return this.mock.getMainPageMock()
   }
 }

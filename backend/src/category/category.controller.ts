@@ -7,7 +7,7 @@ export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
   @Post()
-  getData(@Body() categoryRequest: CategoryRequest) {
-    return this.categoryService.getData(categoryRequest)
+  getCategoryData(@Body() categoryRequest: CategoryRequest) {
+    return this.categoryService.getCategoryData(categoryRequest)
   }
 }

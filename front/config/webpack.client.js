@@ -36,7 +36,6 @@ if (!isProduction) {
       filename: '[id].js',
       publicPath: 'http://localhost:9999/dist/'
     },
-    plugins: [new webpack.HotModuleReplacementPlugin()],
     devtool: 'source-map',
     devServer: {
       historyApiFallback: true,

@@ -1,11 +1,11 @@
 import { withState } from '../helper';
-import { GoodsGridModel, MainBannerModel } from '../../models';
+import {ComputedPick, GoodsGridModel, MainBannerModel} from '../../models';
 import { api } from '../../api';
 import { ref } from 'vue';
 
-interface IFullState extends MainBannerModel {
+interface IFullState extends ComputedPick<MainBannerModel, keyof MainBannerModel> {
   getState: () => MainBannerModel;
-  getData: () => Promise<any>;
+  fetchMainBanner: () => Promise<any>;
   resetState: () => void;
 }
 
@@ -27,7 +27,7 @@ export function createMainPageStore() {
 
   const getState = () => state;
 
-  const getData = async () => {
+  const fetchMainBanner = async () => {
     const { data } = await api.mainPage.getData();
     state.value = data;
   };
@@ -35,7 +35,7 @@ export function createMainPageStore() {
   return (): IFullState =>
     withState(
       {
-        getData,
+        fetchMainBanner,
         getState,
         resetState,
       },

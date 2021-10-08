@@ -7,7 +7,7 @@ export class CategoryService {
   constructor(private mockService: MockService) {
   }
 
-  getData(request: CategoryRequest) {
-    return this.mockService.getCategoryMock(request)
+  getCategoryData(categoryRequest: CategoryRequest) {
+    return this.mockService.getCategoryMock(categoryRequest)
   }
 }

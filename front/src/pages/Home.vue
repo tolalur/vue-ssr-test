@@ -11,7 +11,7 @@ import MainBanner from '../components/main-banner/MainBanner.vue';
 import { onMounted, onServerPrefetch } from 'vue';
 import { useMainPage } from '../store';
 
-const { getData } = useMainPage();
-onServerPrefetch(() => getData());
-onMounted(() => getData());
+const { fetchMainBanner } = useMainPage();
+onServerPrefetch(() => fetchMainBanner());
+onMounted(() => fetchMainBanner());
 </script>

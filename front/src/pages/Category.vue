@@ -17,7 +17,7 @@ import { computed, onMounted, onServerPrefetch, watch } from 'vue';
 import { useCategory } from '../store';
 import { useRoute } from 'vue-router';
 
-const { getData } = useCategory();
+const { fetchCategory } = useCategory();
 const route = useRoute();
 
 const path = computed<string[] | null>(() =>
@@ -28,12 +28,12 @@ const isPathNull = (path: any): path is null => path == null;
 
 watch(
   () => path.value,
-  (val: string[] | null) => !isPathNull(val) && getData(val),
+  (val: string[] | null) => !isPathNull(val) && fetchCategory(val),
 );
 
-onServerPrefetch(() => !isPathNull(path.value) && getData(path.value));
+onServerPrefetch(() => !isPathNull(path.value) && fetchCategory(path.value));
 
-onMounted(() => !isPathNull(path.value) && getData(path.value));
+onMounted(() => !isPathNull(path.value) && fetchCategory(path.value));
 </script>
 
 <style lang="scss">
