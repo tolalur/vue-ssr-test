@@ -1,9 +1,13 @@
 <template>
   <div class="bread-crumbs flex">
-    <bread-crumb-item :breadCrumb="main" :key="main.value" />
+    <bread-crumb-item
+      :key="main.value"
+      :bread-crumb="main"
+    />
 
     <bread-crumb-item
       v-for="(item, index) in breadCrumbs"
+      :key="item.value"
       :bread-crumb="item"
       :is-last="index === breadCrumbs.length - 1"
     />

@@ -1,13 +1,16 @@
 <template>
-  <a class="main-banner-item" :href="'/product/' + data.id">
-    <img :src="data.img[0]" />
+  <a
+    class="main-banner-item"
+    :href="'/product/' + data.id"
+  >
+    <img :src="data.img[0]">
   </a>
 </template>
 
 <script lang="ts" setup>
-import {GoodsGridModel} from '../../models';
+import { GoodsGridModel } from '../../models';
 
-const props = defineProps<{ data: GoodsGridModel }>();
+defineProps<{ data: GoodsGridModel }>();
 </script>
 
 <style lang="scss">

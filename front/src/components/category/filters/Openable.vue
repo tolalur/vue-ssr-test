@@ -1,14 +1,23 @@
 <template>
   <div class="openable">
-    <div class="openable__title flex" @click="show = !show">
+    <div
+      class="openable__title flex"
+      @click="show = !show"
+    >
       <span>
-        <slot name="title"></slot>
+        <slot name="title" />
       </span>
-      <arrow class="openable__title-icon" :class="{ 'openable__title-icon-close': !show }" />
+      <arrow
+        class="openable__title-icon"
+        :class="{ 'openable__title-icon-close': !show }"
+      />
     </div>
 
     <transition name="slide">
-      <div v-if="show" class="openable__content">
+      <div
+        v-if="show"
+        class="openable__content"
+      >
         <slot />
       </div>
     </transition>

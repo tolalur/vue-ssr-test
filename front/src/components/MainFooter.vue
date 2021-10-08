@@ -1,8 +1,18 @@
 <template>
   <footer class="footer">
-    <footer-list v-for="item in links" :title="item.title" :links="item.list" :columns="2" />
+    <footer-list
+      v-for="item in links"
+      :key="item.title"
+      :title="item.title"
+      :links="item.list"
+      :columns="2"
+    />
 
-    <footer-list :columns="1" :title="helpLinks.title" :links="helpLinks.list" />
+    <footer-list
+      :columns="1"
+      :title="helpLinks.title"
+      :links="helpLinks.list"
+    />
   </footer>
 </template>
 

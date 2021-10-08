@@ -1,9 +1,9 @@
 <template>
   <div class="size-filter">
     <div
-      class="size-filter__item"
       v-for="item in data"
       :key="item.value"
+      class="size-filter__item"
       @click="$emit('size', item.value)"
     >
       {{ item.label }}
@@ -14,7 +14,8 @@
 <script lang="ts" setup>
 import { MenuModel } from '../../../../models';
 
-const props = defineProps<{ data: MenuModel[] }>();
+defineProps<{ data: MenuModel[] }>();
+defineEmits<{(e: 'size', value: string): void}>()
 </script>
 
 <style lang="scss">

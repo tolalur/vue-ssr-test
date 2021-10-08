@@ -1,5 +1,8 @@
 <template>
-  <div class="bread-crumb__item" v-if="breadCrumb">
+  <div
+    v-if="breadCrumb"
+    class="bread-crumb__item"
+  >
     <template v-if="!isLast">
       <router-link :to="breadCrumb.value">
         {{ breadCrumb.label }}
@@ -19,9 +22,9 @@
 import Arrow from '../Arrow.vue';
 import { MenuModel } from '../../models';
 
-const props = defineProps<{
+defineProps<{
   breadCrumb: MenuModel;
-  isLast?: Boolean;
+  isLast?: boolean;
 }>();
 </script>
 

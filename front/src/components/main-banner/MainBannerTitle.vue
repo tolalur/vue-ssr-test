@@ -1,5 +1,8 @@
 <template>
-  <a :href="data.url" class="main-banner-title flex-col">
+  <a
+    :href="data.url"
+    class="main-banner-title flex-col"
+  >
     <h4>{{ data.subtitle }}</h4>
     <h3>{{ data.title }}</h3>
     <h6>к коллекции</h6>
@@ -7,9 +10,9 @@
 </template>
 
 <script lang="ts" setup>
-import {MainBannerTitle} from '../../models';
+import { MainBannerTitle } from '../../models';
 
-const props = defineProps<{ data: MainBannerTitle }>();
+defineProps<{ data: MainBannerTitle }>();
 </script>
 
 <style lang="scss">

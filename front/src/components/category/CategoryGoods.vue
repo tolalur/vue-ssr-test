@@ -1,6 +1,10 @@
 <template>
   <div class="category-goods flex">
-    <goods-grid v-for="item in data" :key="item.id" :goods="item" />
+    <goods-grid
+      v-for="item in data"
+      :key="item.id"
+      :goods="item"
+    />
   </div>
 </template>
 

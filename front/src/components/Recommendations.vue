@@ -3,9 +3,9 @@
     <h3>Рекомендуемые товары</h3>
     <div class="flex recommendations__wrapper">
       <goods-grid
-        class="recommendations__goods"
         v-for="item in recommendations"
         :key="item.id"
+        class="recommendations__goods"
         :goods="item"
       />
     </div>

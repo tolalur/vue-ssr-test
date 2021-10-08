@@ -2,7 +2,10 @@
   <div class="goods">
     <a :href="'/product/' + goods.id">
       <div class="goods__img">
-        <img :src="preview" alt="" />
+        <img
+          :src="preview"
+          alt=""
+        >
       </div>
       <div>{{ goods.title }}</div>
       <div>{{ goods.price }} ₽</div>
@@ -11,21 +14,12 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-import { GoodsGridModel } from '../../models';
+<script lang="ts" setup>
+import {computed} from 'vue';
+import {GoodsGridModel} from '../../models';
 
-export default defineComponent({
-  name: 'GoodsGrid',
-  props: {
-    goods: Object as PropType<GoodsGridModel>,
-  },
-  computed: {
-    preview(): string {
-      return this.goods?.img[0] || '';
-    },
-  },
-});
+const props = defineProps<{ goods: GoodsGridModel }>();
+const preview = computed(() => props.goods?.img[0] || '');
 </script>
 
 <style lang="scss">

@@ -17,7 +17,7 @@ import { computed, onMounted, onServerPrefetch, watch } from 'vue';
 import { useCategory } from '../store';
 import { useRoute } from 'vue-router';
 
-const { getData, data, resetState } = useCategory();
+const { getData } = useCategory();
 const route = useRoute();
 
 const path = computed<string[] | null>(() =>

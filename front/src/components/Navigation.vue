@@ -2,8 +2,8 @@
   <nav class="main-navigation">
     <router-link
       v-for="item in navigItem"
-      :to="'/category/' + item.value"
       :key="item.value"
+      :to="'/category/' + item.value"
       class="main-navigation__item"
     >
       {{ item.label }}

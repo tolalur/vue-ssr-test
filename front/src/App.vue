@@ -5,7 +5,7 @@
     <main class="main__content flex-col">
       <navigation />
 
-      <router-view></router-view>
+      <router-view />
     </main>
 
     <main-footer />

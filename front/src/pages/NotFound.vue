@@ -1,5 +1,7 @@
 <template v-once>
-  <section class="not-found">404</section>
+  <section class="not-found">
+    404
+  </section>
 </template>
 
 <style>
