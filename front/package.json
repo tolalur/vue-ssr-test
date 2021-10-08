@@ -13,7 +13,14 @@
     "build-all": "run-p build-client build-server",
     "build": "run-s clean build-all",
     "start": "node ssr/server.js",
-    "lint": "eslint  \"src/**/*.ts\" \"*.js\" \"src/**/*.vue\" --fix"
+    "lint": "eslint  \"src/**/*.ts\" \"*.js\" \"src/**/*.vue\" --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": [
+      "npm run eslint --fix"
+    ],
+    "*.js": "eslint --cache --fix"
   },
   "author": "",
   "license": "ISC",
@@ -40,6 +47,8 @@
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^7.19.1",
     "fork-ts-checker-webpack-plugin": "^6.3.3",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.2.0",
     "mini-css-extract-plugin": "^2.3.0",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12",
