@@ -2,7 +2,7 @@
   <div class="filter-list flex-col">
     <openable v-for="item in filters" :key="item.type">
       <template v-slot:title>{{ item.title }}</template>
-      <component :is="filterByType(item.type)" :data="item.data"/>
+      <component :is="filterByType(item.type)" :data="item.data" />
     </openable>
   </div>
 </template>
@@ -12,10 +12,10 @@ import Openable from './Openable.vue';
 import SizeFilter from './filters-by-type/SizeFilter.vue';
 import TextFilter from './filters-by-type/TextFilter.vue';
 import ColorFilter from './filters-by-type/ColorFilter.vue';
-import {useCategory} from '../../../store';
-import {FilterType} from '../../../../../common/data-models/filter.model';
+import { useCategory } from '../../../store';
+import { FilterType } from '../../../../../common/data-models/filter.model';
 
-const {filters} = useCategory();
+const { filters } = useCategory();
 
 function filterByType(filterType: FilterType) {
   switch (filterType) {

@@ -3,28 +3,28 @@ export class FooterLink {
   list = [
     {
       label: 'Обувь',
-      value: '/footwear'
+      value: '/footwear',
     },
     {
       label: 'Одежда',
-      value: '/clothing'
+      value: '/clothing',
     },
     {
       label: 'Акссесуары',
-      value: '/accessories'
+      value: '/accessories',
     },
     {
       label: 'Новинки',
-      value: '/novelty'
+      value: '/novelty',
     },
     {
       label: 'Календарь релизов',
-      value: '/release-calendar'
+      value: '/release-calendar',
     },
     {
       label: 'Распродажа',
-      value: '/sale'
-    }
+      value: '/sale',
+    },
   ];
 
   constructor(title: string) {
@@ -37,15 +37,15 @@ export class FooterHelpLinks {
   list = [
     {
       label: 'Доставка',
-      value: '/delivery'
+      value: '/delivery',
     },
     {
       label: 'Возврат',
-      value: '/return'
+      value: '/return',
     },
     {
       label: 'Отмена заказа',
-      value: '/order-cancellation'
-    }
+      value: '/order-cancellation',
+    },
   ];
 }

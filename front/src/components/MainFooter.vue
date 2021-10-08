@@ -1,33 +1,25 @@
 <template>
   <footer class="footer">
-    <footer-list
-        v-for="item in links"
-        :title="item.title" :links="item.list"
-        :columns="2"
-    />
+    <footer-list v-for="item in links" :title="item.title" :links="item.list" :columns="2" />
 
-    <footer-list
-        :columns="1"
-        :title="helpLinks.title"
-        :links="helpLinks.list"
-    />
+    <footer-list :columns="1" :title="helpLinks.title" :links="helpLinks.list" />
   </footer>
 </template>
 
 <script lang="ts" setup>
 import FooterList from './FooterList.vue';
-import {FooterLink, FooterHelpLinks} from '../data/footerLink';
+import { FooterLink, FooterHelpLinks } from '../data/footerLink';
 
 const links = [
   new FooterLink('категории'),
   new FooterLink('виды спорта'),
-  new FooterLink('коллекции')
+  new FooterLink('коллекции'),
 ];
 const helpLinks = new FooterHelpLinks();
 </script>
 
 <style scoped lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 
 .footer {
   color: #ffffff;

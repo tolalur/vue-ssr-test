@@ -6,22 +6,22 @@
 </template>
 
 <script lang="ts">
-import MainBannerTitle from "./MainBannerTitle.vue";
-import MainBannerItem from "./MainBannerItem.vue";
-import { defineComponent } from "vue";
-import { useMainPage } from "../../store";
+import MainBannerTitle from './MainBannerTitle.vue';
+import MainBannerItem from './MainBannerItem.vue';
+import { defineComponent } from 'vue';
+import { useMainPage } from '../../store';
 
 export default defineComponent({
-  name: "MainBanner",
+  name: 'MainBanner',
   components: { MainBannerTitle, MainBannerItem },
   setup() {
     const { collection, data } = useMainPage();
 
     return {
       collection,
-      goods: data
+      goods: data,
     };
-  }
+  },
 });
 </script>
 

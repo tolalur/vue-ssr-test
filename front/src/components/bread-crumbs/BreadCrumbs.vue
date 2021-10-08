@@ -1,23 +1,23 @@
 <template>
   <div class="bread-crumbs flex">
-    <bread-crumb-item :breadCrumb="main" :key="main.value"/>
+    <bread-crumb-item :breadCrumb="main" :key="main.value" />
 
     <bread-crumb-item
-        v-for="(item, index) in breadCrumbs"
-        :bread-crumb="item"
-        :is-last="index === breadCrumbs.length - 1"
+      v-for="(item, index) in breadCrumbs"
+      :bread-crumb="item"
+      :is-last="index === breadCrumbs.length - 1"
     />
   </div>
 </template>
 
 <script lang="ts" setup>
 import BreadCrumbItem from './BreadCrumbItem.vue';
-import {useCategory} from '../../store';
+import { useCategory } from '../../store';
 
-const {breadCrumbs} = useCategory();
+const { breadCrumbs } = useCategory();
 const main = {
   label: 'Главная',
-  value: '/'
+  value: '/',
 };
 </script>
 

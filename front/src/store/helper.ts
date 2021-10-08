@@ -1,7 +1,7 @@
-import {computed, Ref, UnwrapRef} from 'vue';
+import { computed, Ref, UnwrapRef } from 'vue';
 
 export const withState = (target: any, state: Ref<any>) => {
-  Object.keys(state.value).forEach(prop => {
+  Object.keys(state.value).forEach((prop) => {
     target[prop] = computed(() => state.value[prop]);
   });
 
@@ -9,7 +9,7 @@ export const withState = (target: any, state: Ref<any>) => {
 };
 
 export const replaceState = (target: UnwrapRef<any>, state: UnwrapRef<any>) => {
-  Object.keys(state).forEach(prop => {
+  Object.keys(state).forEach((prop) => {
     target[prop] = state[prop];
   });
 

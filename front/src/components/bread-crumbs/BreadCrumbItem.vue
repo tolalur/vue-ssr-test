@@ -16,17 +16,17 @@
 </template>
 
 <script lang="ts" setup>
-import Arrow from "../Arrow.vue";
-import {MenuModel} from '../../models';
+import Arrow from '../Arrow.vue';
+import { MenuModel } from '../../models';
 
 const props = defineProps<{
-  breadCrumb: MenuModel
-  isLast?: Boolean
-}>()
+  breadCrumb: MenuModel;
+  isLast?: Boolean;
+}>();
 </script>
 
 <style lang="scss">
-@import "../../assets/style/variables";
+@import '../../assets/style/variables';
 .bread-crumb__item {
   display: flex;
   align-items: center;

@@ -4,10 +4,7 @@
       <span>
         <slot name="title"></slot>
       </span>
-      <arrow
-        class="openable__title-icon"
-        :class="{ 'openable__title-icon-close': !show }"
-      />
+      <arrow class="openable__title-icon" :class="{ 'openable__title-icon-close': !show }" />
     </div>
 
     <transition name="slide">
@@ -19,14 +16,14 @@
 </template>
 
 <script setup>
-import Arrow from "../../Arrow";
-import {ref} from "vue";
+import Arrow from '../../Arrow';
+import { ref } from 'vue';
 
-const show =  ref(true)
+const show = ref(true);
 </script>
 
 <style lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 .slide-enter-active,
 .slide-leave-active {
   transition: all 0.3s ease;

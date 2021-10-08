@@ -12,27 +12,27 @@
 </template>
 
 <script lang="ts">
-import { MenuModel } from "../models";
+import { MenuModel } from '../models';
 
 export default {
-  name: "Navigation",
+  name: 'Navigation',
   computed: {
     navigItem(): MenuModel[] {
       return [
-        { label: "Женщинам", value: "women" },
-        { label: "Мужчинам", value: "men" },
-        { label: "Детям", value: "children" },
-        { label: "Тренды", value: "trends" },
-        { label: "Новинки", value: "latest" },
-        { label: "Скидки", value: "discounts" }
+        { label: 'Женщинам', value: 'women' },
+        { label: 'Мужчинам', value: 'men' },
+        { label: 'Детям', value: 'children' },
+        { label: 'Тренды', value: 'trends' },
+        { label: 'Новинки', value: 'latest' },
+        { label: 'Скидки', value: 'discounts' },
       ];
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
-@import "../assets/style/variables";
+@import '../assets/style/variables';
 
 .main-navigation {
   width: 100%;

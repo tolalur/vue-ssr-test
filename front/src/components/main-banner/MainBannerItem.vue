@@ -5,19 +5,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { GoodsGridModel } from "../../models";
+import { defineComponent, PropType } from 'vue';
+import { GoodsGridModel } from '../../models';
 
 export default defineComponent({
-  name: "MainBannerItem",
+  name: 'MainBannerItem',
   props: {
-    data: Object as PropType<GoodsGridModel>
-  }
+    data: Object as PropType<GoodsGridModel>,
+  },
 });
 </script>
 
 <style lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 
 .main-banner-item {
   display: block;

@@ -1,14 +1,14 @@
 <template>
   <div class="main wrapper flex-col">
-    <main-header/>
+    <main-header />
 
     <main class="main__content flex-col">
-      <navigation/>
+      <navigation />
 
       <router-view></router-view>
     </main>
 
-    <main-footer/>
+    <main-footer />
   </div>
 </template>
 

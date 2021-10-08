@@ -1,10 +1,10 @@
 <template>
   <div class="size-filter">
     <div
-        class="size-filter__item"
-        v-for="item in data"
-        :key="item.value"
-        @click="$emit('size', item.value)"
+      class="size-filter__item"
+      v-for="item in data"
+      :key="item.value"
+      @click="$emit('size', item.value)"
     >
       {{ item.label }}
     </div>
@@ -12,13 +12,13 @@
 </template>
 
 <script lang="ts" setup>
-import {MenuModel} from '../../../../models';
+import { MenuModel } from '../../../../models';
 
 const props = defineProps<{ data: MenuModel[] }>();
 </script>
 
 <style lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 
 .size-filter {
   display: grid;

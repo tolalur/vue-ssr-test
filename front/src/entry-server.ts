@@ -1,7 +1,7 @@
 import _createApp from './main';
 
 export default async (context: any) => {
-  const {app, router, store} = _createApp();
+  const { app, router, store } = _createApp();
 
   await router.push(context.url);
   await router.isReady();
@@ -15,4 +15,4 @@ export default async (context: any) => {
   context.state = store;
 
   return app;
-}
+};

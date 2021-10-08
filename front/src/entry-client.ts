@@ -1,5 +1,5 @@
-import _createApp from "./main";
-import { replaceState } from "./store/helper";
+import _createApp from './main';
+import { replaceState } from './store/helper';
 
 let { app, router, store } = _createApp();
 

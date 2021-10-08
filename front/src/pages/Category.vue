@@ -1,10 +1,10 @@
 <template>
   <section class="category">
-    <bread-crumbs/>
+    <bread-crumbs />
 
     <div class="category__content">
-      <filter-list/>
-      <category-goods/>
+      <filter-list />
+      <category-goods />
     </div>
   </section>
 </template>
@@ -13,20 +13,23 @@
 import BreadCrumbs from '../components/bread-crumbs/BreadCrumbs.vue';
 import FilterList from '../components/category/filters/FilterList.vue';
 import CategoryGoods from '../components/category/CategoryGoods.vue';
-import {computed, onMounted, onServerPrefetch, watch} from 'vue';
-import {useCategory} from '../store';
-import {useRoute} from 'vue-router';
+import { computed, onMounted, onServerPrefetch, watch } from 'vue';
+import { useCategory } from '../store';
+import { useRoute } from 'vue-router';
 
-const {getData, data, resetState} = useCategory();
+const { getData, data, resetState } = useCategory();
 const route = useRoute();
 
-const path = computed<string[] | null>(() => Array.isArray(route.params['nested'])
-    ? route.params['nested']
-    : null);
+const path = computed<string[] | null>(() =>
+  Array.isArray(route.params['nested']) ? route.params['nested'] : null,
+);
 
 const isPathNull = (path: any): path is null => path == null;
 
-watch(() => path.value, (val: string[] | null) => !isPathNull(val) && getData(val));
+watch(
+  () => path.value,
+  (val: string[] | null) => !isPathNull(val) && getData(val),
+);
 
 onServerPrefetch(() => !isPathNull(path.value) && getData(path.value));
 

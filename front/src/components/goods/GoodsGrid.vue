@@ -12,24 +12,24 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { GoodsGridModel } from "../../models";
+import { defineComponent, PropType } from 'vue';
+import { GoodsGridModel } from '../../models';
 
 export default defineComponent({
-  name: "GoodsGrid",
+  name: 'GoodsGrid',
   props: {
-    goods: Object as PropType<GoodsGridModel>
+    goods: Object as PropType<GoodsGridModel>,
   },
   computed: {
     preview(): string {
-      return this.goods?.img[0] || "";
-    }
-  }
+      return this.goods?.img[0] || '';
+    },
+  },
 });
 </script>
 
 <style lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 
 .goods {
   font-size: 1.1rem;

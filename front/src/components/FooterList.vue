@@ -3,9 +3,7 @@
     <div class="footer-list__title">{{ title }}</div>
     <div
       class="footer-list__items"
-      :class="
-        columns === 1 ? 'footer-list__one-column' : 'footer-list__two-column'
-      "
+      :class="columns === 1 ? 'footer-list__one-column' : 'footer-list__two-column'"
     >
       <router-link
         v-for="(item, index) in links"
@@ -20,12 +18,12 @@
 </template>
 
 <script lang="ts" setup>
-import {MenuModel} from '../models';
+import { MenuModel } from '../models';
 
 const props = defineProps<{
-  columns: number,
-  title: string,
-  links: MenuModel[]
+  columns: number;
+  title: string;
+  links: MenuModel[];
 }>();
 </script>
 

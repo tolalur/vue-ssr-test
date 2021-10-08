@@ -7,19 +7,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import { MainBannerTitle } from "../../models";
+import { defineComponent, PropType } from 'vue';
+import { MainBannerTitle } from '../../models';
 
 export default defineComponent({
-  name: "MainBannerTitle",
+  name: 'MainBannerTitle',
   props: {
-    data: Object as PropType<MainBannerTitle>
-  }
+    data: Object as PropType<MainBannerTitle>,
+  },
 });
 </script>
 
 <style lang="scss">
-@import "src/assets/style/variables";
+@import 'src/assets/style/variables';
 
 .main-banner-title {
   flex-grow: 1;

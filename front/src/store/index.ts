@@ -1,6 +1,6 @@
-import { createCategoryStore } from "./category";
-import { createMainPageStore } from "./main-page";
-import {reactive} from 'vue';
+import { createCategoryStore } from './category';
+import { createMainPageStore } from './main-page';
+import { reactive } from 'vue';
 
 export const useCategory = createCategoryStore();
 export const useMainPage = createMainPageStore();
@@ -14,6 +14,6 @@ export function _createStore() {
 
   return reactive({
     category: category.getState(),
-    mainPage: mainPage.getState()
+    mainPage: mainPage.getState(),
   });
 }
