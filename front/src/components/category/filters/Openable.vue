@@ -56,7 +56,7 @@ const show = ref(true);
     color: $color-dark;
 
     &-icon {
-      margin-left: 12px;
+      margin-left: 1rem;
       transition: all 0.3s ease;
 
       &-close {

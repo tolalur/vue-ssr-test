@@ -12,23 +12,11 @@
   </section>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import GoodsGrid from './goods/GoodsGrid.vue';
+import {useMainPage} from '../store';
 
-import { useMainPage } from '../store';
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  name: 'Recommendations',
-  components: { GoodsGrid },
-  setup() {
-    const { recommendations } = useMainPage();
-
-    return {
-      recommendations,
-    };
-  },
-});
+const {recommendations} = useMainPage();
 </script>
 
 <style lang="scss">
