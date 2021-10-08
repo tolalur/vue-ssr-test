@@ -14,7 +14,12 @@
     "build": "run-s clean build-all",
     "start": "node ssr/server.js",
     "lint": "eslint  \"src/**/*.ts\" \"*.js\" \"src/**/*.vue\" --fix",
-    "prepare": "husky install"
+    "prepare": "cd .. && husky install front/.husky"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged --no-stash"
+    }
   },
   "lint-staged": {
     "*.{js,ts,vue}": [
