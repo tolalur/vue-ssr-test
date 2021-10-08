@@ -7,8 +7,6 @@ const {createBundleRenderer} = require('vue-bundle-renderer');
 const serverBundle = require('../dist/vue-ssr-server-bundle.json');
 const clientManifest = require('../dist/vue-ssr-client-manifest.json');
 
-const isProd = process.env.NODE_ENV === 'production';
-
 function createRenderer(bundle, options) {
   return createBundleRenderer(
     bundle,
@@ -79,16 +77,6 @@ server.get('*', async (req, res) => {
     console.error(`error during render : ${req.url}`);
     console.error(err);
   }
-
-
-  // renderer.renderToString(context, (err, html) => {
-  //   if (err) {
-  //     console.warn('SSR error', err)
-  //     res.status(500).end();
-  //   }
-  //
-  //   res.end(html);
-  // });
 });
 
 server.listen(3000);
